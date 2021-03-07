@@ -26,6 +26,6 @@ router.beforeEach((to, from, next) => {
 });
 
 router.afterEach(to => {
-  // setTitle(to)
+  window.document.title = '案例演示'
   NProgress.done(); // 结束Progress
 });

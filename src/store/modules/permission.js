@@ -31,9 +31,7 @@ const permission = {
     GenerateRoutes({ commit }) {
       return new Promise(resolve => {
         // const result = asyncRoutes // 使用本地静态路由
-        console.log(asyncRoutes)
         const result = generateRoutes(asyncRoutes) // 比对后台返回的菜单数据
-        console.log(result)
         commit('SET_ROUTERS', result)
         resolve()
       })
@@ -82,7 +80,6 @@ function generateRoutes(routes, basePath = '/') {
   const res = []
   // console.log(routes)
   for (const route of routes) {
-    console.log(route)
     // skip some route
     if (route.hidden) { continue }
 
@@ -93,8 +90,7 @@ function generateRoutes(routes, basePath = '/') {
     }
 
     let data = null
-    console.log(wsCache.get('menuList'))
-    console.log((wsCache.get('menuList') && wsCache.get('menuList').list) || wsCache.get('newMenu'))
+    // console.log((wsCache.get('menuList') && wsCache.get('menuList').list) || wsCache.get('newMenu'))
     const list = (wsCache.get('menuList') && wsCache.get('menuList').list) || wsCache.get('newMenu')
     // console.log(list)
     for (const item of list) {

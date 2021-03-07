@@ -2,17 +2,22 @@
  * @Author: linzq
  * @Date: 2020-11-25 14:32:29
  * @LastEditors: linzq
- * @LastEditTime: 2021-02-20 15:04:35
+ * @LastEditTime: 2021-02-20 17:15:52
  * @Description: 全局配置
  */
 /**
  * 全局配置
  */
-export default {
+api = {
+  dev: 'http://10.206.142.213:9527/', // 开发地址
+  // dev: 'http://10.206.142.251:9527/', // 开发地址
+  pro: '' //生产地址
+}
+module.exports = {
   /**
    * 配置显示在浏览器标签的title
    */
-  title: 'koa2服务前端项目',
+  title: 'vue案例演示项目',
 
   /**
    * 是否开启显示在浏览器标签的title,如果为false, 则只显示默认title
@@ -39,7 +44,5 @@ export default {
   /**
    * api请求基础路径
    */
-  base_url: {
-    dev: 'http://127.0.0.1:4000/' // 开发地址
-  }
+  base_url: process.env.NODE_ENV === 'development' ? api.dev : api.pro
 }
